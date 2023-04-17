@@ -1,7 +1,7 @@
 import { Character } from "../Character/Character.js";
 import Fighter from "../Fighter/Fighter.js";
 
-export class Squire extends Character {
+class Squire extends Character {
   kissAssLeve;
   serves;
 
