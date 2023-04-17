@@ -14,7 +14,7 @@ class Fighter extends Character {
     return `${super.communicate()}First I hit and then I ask`;
   }
 
-  #filterDexterity(dexterity) {
+  filterDexterity(dexterity) {
     if (dexterity < 0) {
       return 0;
     }
