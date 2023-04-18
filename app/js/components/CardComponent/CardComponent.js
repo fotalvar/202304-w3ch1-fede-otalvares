@@ -34,12 +34,30 @@ class CardComponent extends Component {
             </div>
             <div class="character__overlay">
               <ul class="list-unstyled">
-                <li>Years of Reign: ${this.character.yearsOfReign}</li>
-                <li>Weapon: ${this.character.weapon}</li>
-                <li>Dexterity: ${this.character.dexterity}</li>
-                <li>Kiss Ass level: ${this.character.kissAssLevel}</li>
-                <li>Advises to: ${this.character.advises}</li>
-                <li>Serves to: ${this.character.serves}</li>
+                <li>Years of Reign: ${
+                  this.character.yearsOfReign ? this.character.yearsOfReign : ""
+                }</li>                
+                <li>Weapon: ${
+                  this.character.weapon ? this.character.weapon : "-"
+                }</li>
+                <li>Dexterity: ${
+                  this.character.dexterity ? this.character.dexterity : "-"
+                }</li>
+                <li>Kiss Ass level: ${
+                  this.character.kissAssLevel
+                    ? this.character.kissAssLevel
+                    : "-"
+                }</li>
+                <li>Advises to:   ${
+                  this.character?.advises?.characterData?.name
+                    ? `<li>${this.character.advises.characterData.name}</li>`
+                    : "-"
+                }</li>
+                <li>Serves to: ${
+                  this.character?.serves?.characterData?.name
+                    ? `<li>${this.character.serves.characterData.name}</li>`
+                    : "-"
+                }</li>
               </ul>
               <div class="character__actions">
                 <button class="character__action btn">speak</button>
