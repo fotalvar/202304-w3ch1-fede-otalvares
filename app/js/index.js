@@ -1,10 +1,10 @@
 import CardListComponent from "./components/CardListComponent/CardListComponent.js";
 import { characters } from "./characters/characters.js";
 
-const mainContainer = document.querySelector(".app");
+const appContainer = document.querySelector(".app");
 
 new CardListComponent(
-  mainContainer,
+  appContainer,
   "characters-list row list-unstyled",
   characters
 );
