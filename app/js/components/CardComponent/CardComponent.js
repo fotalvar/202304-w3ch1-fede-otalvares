@@ -1,11 +1,15 @@
 import Component from "../Component/Component.js";
+import Fighter from "../../characters/Fighter/Fighter.js";
+import King from "../../characters/King/King.js";
+import Squire from "../../characters/Squire/Squire.js";
+import Advisor from "../../characters/Advisor/Advisor.js";
 
 class CardComponent extends Component {
-  className;
   character;
+  className;
 
   constructor(parentElement, className, character) {
-    super(parentElement, "li");
+    super(parentElement, "li", className);
 
     this.element.className = className;
     this.character = character;
@@ -26,9 +30,11 @@ class CardComponent extends Component {
               <ul class="list-unstyled">
                 <li>Age:${this.character.characterData.age} yrs</li>
                 <li>
-                  State:
-                  <i class="fas fa-thumbs-down"></i>
-                  <i class="fas fa-thumbs-up"></i>
+                  State:${
+                    this.character.isAlive
+                      ? `<i class="fas fa-thumbs-up"></i>`
+                      : `<i class="fas fa-thumbs-down"></i>`
+                  }
                 </li>
               </ul>
             </div>
@@ -49,12 +55,12 @@ class CardComponent extends Component {
                     : "-"
                 }</li>
                 <li>Advises to:   ${
-                  this.character?.advises?.characterData?.name
+                  this.character?.advises
                     ? `<li>${this.character.advises.characterData.name}</li>`
                     : "-"
                 }</li>
                 <li>Serves to: ${
-                  this.character?.serves?.characterData?.name
+                  this.character?.serves
                     ? `<li>${this.character.serves.characterData.name}</li>`
                     : "-"
                 }</li>
@@ -65,7 +71,12 @@ class CardComponent extends Component {
               </div>
             </div>
           </div>
-          <i class="emoji"></i>
+          <i class="emoji">
+          ${this.character instanceof Fighter ? "🗡" : ""}
+          ${this.character instanceof King ? "👑" : ""}
+          ${this.character instanceof Advisor ? "🎓" : ""}
+          ${this.character instanceof Squire ? "🛡" : ""}
+          </i>
         </div>`;
   }
 }
